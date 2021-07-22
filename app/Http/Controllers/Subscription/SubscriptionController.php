@@ -9,7 +9,9 @@ class SubscriptionController extends Controller
 {
     public function index(Request $request)
     {
-        return view('subscriptions.index');
+        return view('subscriptions.index', [
+            'intent' => auth()->user()->createSetupIntent(),
+        ]);
     }
 
     public function store(Request $request)
